@@ -274,7 +274,29 @@ namespace Simple_Calculator
 
         private void btn9_Click(object sender, EventArgs e)
         {
-            calculate(9);
+            //Replace 0 if that's all that's there
+            if (lblDisplay.Text != "0")
+            {
+                //Replace the text if this isn't the final answer
+                if ((expression != 8) && (working == true))
+                {
+                    lblDisplay.Text = lblDisplay.Text + "8";
+                }
+                else
+                {
+                    lblDisplay.Text = "8";
+
+                    //set expression to 9 to prevent label from resetting in a loop
+                    if (expression == 8)
+                    {
+                        expression = 9;
+                    }
+                }
+            }
+            else
+            {
+                lblDisplay.Text = "8";
+            }
 
             working = true;
         }
@@ -306,29 +328,6 @@ namespace Simple_Calculator
                     break;
             }
             return answer;
-        }
-        
-        public void calculate(int number) {
-        //Don't input 0s if you're already at 0
-            if (lblDisplay.Text != "0")
-            {
-                //Replace the text if this isn't the final answer
-                if ((expression != 8) && (working == true))
-                {
-                    lblDisplay.Text = lblDisplay.Text + number.toString();
-
-                }
-                else
-                {
-                    lblDisplay.Text = number.toString();
-
-                    //set expression to 9 to prevent label from resetting in a loop
-                    if (expression == 8)
-                    {
-                        expression = 9;
-                    }
-                }
-            }
         }
         
         private void btnAdd_Click(object sender, EventArgs e)
