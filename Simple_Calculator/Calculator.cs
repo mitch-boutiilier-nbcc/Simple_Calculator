@@ -20,138 +20,33 @@ namespace Simple_Calculator
         //Number input buttons
         private void btn0_Click(object sender, EventArgs e)
         {
-            //Don't input 0s if you're already at 0
-            if (lblDisplay.Text != "0")
-            {
-                //Replace the text if this isn't the final answer
-                if ((expression != 8) && (working == true))
-                {
-                    lblDisplay.Text = lblDisplay.Text + "0";
-
-                }
-                else
-                {
-                    lblDisplay.Text = "0";
-
-                    //set expression to 9 to prevent label from resetting in a loop
-                    if (expression == 8)
-                    {
-                        expression = 9;
-                    }
-                }
-            }
+            userInput(0);
         }
 
         private void btn1_Click(object sender, EventArgs e)
         {
-            //Replace 0 if that's all that's there
-            if (lblDisplay.Text != "0")
-            {
-                //Replace the text if this isn't the final answer
-                if ((expression != 8) && (working == true))
-                {
-                    lblDisplay.Text = lblDisplay.Text + "1";
-                } else
-                {
-                    lblDisplay.Text = "1";
-
-                    //set expression to 9 to prevent label from resetting in a loop
-                    if (expression == 8)
-                    {
-                        expression = 9;
-                    }
-                }                
-            } else
-            {
-                lblDisplay.Text = "1";
-            }
+            userInput(1);
 
             working = true;
         }
 
         private void btn2_Click(object sender, EventArgs e)
         {
-            //Replace 0 if that's all that's there
-            if (lblDisplay.Text != "0")
-            {
-                //Replace the text if this isn't the final answer
-                if ((expression != 8) && (working == true))
-                {
-                    lblDisplay.Text = lblDisplay.Text + "2";
-                }
-                else
-                {
-                    lblDisplay.Text = "2";
-
-                    //set expression to 9 to prevent label from resetting in a loop
-                    if (expression == 8)
-                    {
-                        expression = 9;
-                    }
-                }
-            }
-            else
-            {
-                lblDisplay.Text = "2";
-            }
+            userInput(2);
 
             working = true;
         }
 
         private void btn3_Click(object sender, EventArgs e)
         {
-            //Replace 0 if that's all that's there
-            if (lblDisplay.Text != "0")
-            {
-                //Replace the text if this isn't the final answer
-                if ((expression != 8) && (working == true))
-                {
-                    lblDisplay.Text = lblDisplay.Text + "3";
-                }
-                else
-                {
-                    lblDisplay.Text = "3";
-
-                    //set expression to 9 to prevent label from resetting in a loop
-                    if (expression == 8)
-                    {
-                        expression = 9;
-                    }
-                }
-            }
-            else
-            {
-                lblDisplay.Text = "3";
-            }
+            userInput(3);
 
             working = true;
         }
 
         private void btn4_Click(object sender, EventArgs e)
         {
-            //Replace 0 if that's all that's there
-            if (lblDisplay.Text != "0")
-            {
-                //Replace the text if this isn't the final answer
-                if ((expression != 8) && (working == true))
-                {
-                    lblDisplay.Text = lblDisplay.Text + "4";
-                }
-                else
-                {
-                    lblDisplay.Text = "4";
-
-                    //set expression to 9 to prevent label from resetting in a loop
-                    if (expression == 8)
-                    {
-                        expression = 9;
-                    }
-                }
-            }
-            else
-            {
-                lblDisplay.Text = "4";
-            }
+            userInput(4);
 
             working = true;
         }
@@ -301,6 +196,29 @@ namespace Simple_Calculator
             working = true;
         }
 
+        public void userInput(int number)
+        {
+            //Don't input 0s if you're already at 0
+            if (lblDisplay.Text != "0")
+            {
+                //Replace the text if this isn't the final answer
+                if ((expression != 8) && (working == true))
+                {
+                    lblDisplay.Text = lblDisplay.Text + number.ToString();
+
+                }
+                else
+                {
+                    lblDisplay.Text = number.ToString();
+
+                    //set expression to 9 to prevent label from resetting in a loop
+                    if (expression == 8)
+                    {
+                        expression = 9;
+                    }
+                }
+            }
+        }
 
         //function for evaluating calculations based on expression type
         public double calculate()
