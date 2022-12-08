@@ -16,6 +16,7 @@ namespace Simple_Calculator
         double tempNumber = 0, answer = 0, input = 0;
         int expression = 9; //0 = Add, 1 = Subtract, 2 = Multiply, 3 = Divide, 8 = Finish, 9 = Start
         bool working = false; // flag for if a user is still entering a number
+        bool mtest = false;
 
         //Number input buttons
         private void btn0_Click(object sender, EventArgs e)
