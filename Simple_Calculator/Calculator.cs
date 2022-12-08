@@ -199,7 +199,7 @@ namespace Simple_Calculator
         public void userInput(int number)
         {
             //Don't input 0s if you're already at 0
-            if (lblDisplay.Text != "0")
+            if ((lblDisplay.Text != "0") && (number != 0))
             {
                 //Replace the text if this isn't the final answer
                 if ((expression != 8) && (working == true))
@@ -296,10 +296,17 @@ namespace Simple_Calculator
         //Resets the Calculator
         private void btnClearEverything_Click(object sender, EventArgs e)
         {
-            lblDisplay.Text = "0";
-            tempNumber = 0;
-            answer = 0;
-            input = 0;
+            try
+            {
+                lblDisplay.Text = "0";
+                tempNumber = 0;
+                answer = 0;
+                input = 0;
+            } catch(Exception ex)
+            {
+                
+            }
+
         }
     }
 }
